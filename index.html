@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BSA Troop 128</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #003f7f 0%, #0066cc 100%);
+      color: #333;
+      height: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #003f7f 0%, #0066cc 100%);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 42px;
+      font-weight: 900;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      letter-spacing: 2px;
+      color: #ffd700;
+    }
+
+    .header-text p {
+      margin: 8px 0 0 0;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      color: #e6f3ff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      letter-spacing: 1px;
+    }
+
+    /* Navigation */
+    .nav {
+      background: #002d5a;
+      padding: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom-color: #ffd700;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <!-- Header -->
+   <header class="header">
+    <div class="header-content">
+     <div class="header-text">
+      <h1 id="troop-name">BSA Troop 128</h1>
+      <p id="troop-motto">Be Prepared</p>
+     </div>
+    </div>
+   </header>
+
+   <!-- Navigation -->
+   <nav class="nav">
+    <div class="nav-buttons">
+      <button class="nav-btn active" onclick="showPage(event, 'home')">Home</button>
+      <button class="nav-btn" onclick="showPage(event, 'camping')">Camping</button>
+      <button class="nav-btn" onclick="showPage(event, 'meetings')">Meetings</button>
+      <button class="nav-btn" onclick="showPage(event, 'location')">Location</button>
+      <button class="nav-btn" onclick="showPage(event, 'links')">Links</button>
+    </div>
+   </nav>
+   <!-- Main Content -->
+   <main class="main-content">
+    <!-- Home Page -->
+    <div id="home" class="page active">
+     <div class="welcome-section">
+      <h2>Welcome to Troop 128!</h2>
+      <p>We are a dynamic Boy Scout troop dedicated to developing character, citizenship, and fitness in young people. Our troop has been serving the community for years, helping scouts achieve their goals and become leaders of tomorrow.</p>
+     </div>
+     <div class="features-grid">
+      <div class="feature-card">
+       <div class="feature-icon">🏕️</div>
+       <h3>Camping</h3>
+       <p>Experience the great outdoors with monthly camping trips to amazing locations. Build skills, make friends, and create memories that last a lifetime.</p>
+      </div>
+      <div class="feature-card">
+       <div class="feature-icon">🎯</div>
+       <h3>Scouting Skills</h3>
+       <p>Learn essential life skills through hands-on activities and challenges. Discover new interests and develop expertise that will serve you throughout life.</p>
+      </div>
+      <div class="feature-card">
+       <div class="feature-icon">⚡</div>
+       <h3>Leadership</h3>
+       <p>Develop leadership skills through patrol activities, troop positions, and community service projects. Learn to lead by example and inspire others.</p>
+      </div>
+      <div class="feature-card">
+       <div class="feature-icon">🦅</div>
+       <h3>Eagle Scout</h3>
+       <p>Work toward Scouting's highest rank. Our troop has a strong tradition of supporting scouts on their journey to Eagle Scout. Many scouts have finished eagle in our troop.</p>
+      </div>
+     </div>
+     <h3>About Our Troop</h3>
+     <p>Troop 128 meets regularly on monday's and provides a comprehensive scouting program that includes outdoor adventures, skill development, community service, and leadership training. We welcome new members and their families to join our scouting community.</p>
+     <p><strong>Scoutmaster:</strong> <span id="scoutmaster-name">Mr. Chris</span></p>
+     <p><strong>Contact:</strong> <span id="contact-email">troop128@example.com</span></p>
+    </div>
+
+    <!-- Camping Page -->
+    <div id="camping" class="page">
+     <h2>Camping Adventures</h2>
+     <p>Our troop goes on exciting camping trips throughout the year. Here are some of our favorite destinations and upcoming adventures:</p>
+     <div class="camping-grid">
+      <div class="camping-card">
+       <div class="camping-header">🏕️ Camp Shands</div>
+       <div class="camping-content">
+        <div class="camping-date">Soon...</div>
+        <p><strong>Location:</strong> Camp Shands, Melrose, FL</p>
+        <p><strong>Activities:</strong> Swimming, canoeing, fishing, archery, rifle shooting, merit badge sessions</p>
+        <p><strong>What to Expect:</strong> North Central Florida Council's premier camp on beautiful Kingsley Lake. Features a 2,000-acre property with crystal-clear spring-fed lake, perfect for aquatics programs and outdoor adventure.</p>
+       </div>
+      </div>
+      <div class="camping-card">
+       <div class="camping-header">🌲 Camp Echockotee</div>
+       <div class="camping-content">
+        <div class="camping-date">Soon...</div>
+        <p><strong>Location:</strong> Camp Echockotee, Hawthorne, FL</p>
+        <p><strong>Activities:</strong> High adventure, climbing tower, zip line, wilderness skills, team building</p>
+        <p><strong>What to Expect:</strong> North Central Florida Council's high adventure base featuring a 40-foot climbing tower, and challenging outdoor programs. Perfect for older scouts seeking adventure and leadership development.</p>
+       </div>
+      </div>
+      <div class="camping-card" style="border-left-color: #6c757d;">
+       <div class="camping-header" style="background: #6c757d; display: flex; align-items: center; justify-content: center; font-size: 24px; padding: 40px 20px;">More to come!</div>
+       <div class="camping-content">
+        <p style="text-align: center; color: #6c757d; font-style: italic;">We're planning more exciting camping adventures throughout the year. Check back soon for updates on additional trips and outdoor activities!</p>
+       </div>
+      </div>
+     </div>
+     <h3>What to Bring</h3>
+     <p>Each camping trip has a specific packing list, but essentials include: sleeping bag, tent (if not provided), weather-appropriate clothing, personal hygiene items, water bottles, and any required merit badge materials. Detailed packing lists are provided before each trip.</p>
+    </div>
+
+    <!-- Meetings Page -->
+    <div id="meetings" class="page">
+     <h2>Meeting Schedule</h2>
+     <p><strong>Regular Meetings:</strong> <span id="meeting-day">Every Tuesday</span> from <span id="meeting-time">7:00 PM - 8:30 PM</span></p>
+     <p><strong>Location:</strong> <span id="meeting-location">Community Center</span></p>
+     <div class="calendar-container">
+      <div class="calendar-header">
+        <button class="calendar-nav-btn" onclick="changeMonth(-1)">‹</button>
+        <span id="calendar-month-year">March 2024</span>
+        <button class="calendar-nav-btn" onclick="changeMonth(1)">›</button>
+      </div>
+      <div class="calendar-grid" id="calendar-grid"><!-- Calendar will be generated by JavaScript --></div>
+     </div>
+     <h3>Meeting Activities</h3>
+     <p>Our weekly meetings include:</p>
+     <ul>
+      <li><strong>Opening Ceremony:</strong> Flag ceremony and Scout Oath/Law</li>
+      <li><strong>Patrol Time:</strong> Small group activities and planning</li>
+      <li><strong>Skill Instruction:</strong> Merit badge work and outdoor skills</li>
+      <li><strong>Games &amp; Activities:</strong> Fun team-building exercises</li>
+      <li><strong>Announcements:</strong> Upcoming events and important information</li>
+      <li><strong>Closing:</strong> Reflection and dismissal</li>
+     </ul>
+     <h3>Special Events</h3>
+     <p>In addition to regular meetings, we host special events throughout the year including Court of Honor ceremonies, Eagle Scout ceremonies, community service projects, and fundraising activities.</p>
+    </div>
+
+    <!-- Location Page -->
+    <div id="location" class="page">
+     <h2>Where We Meet</h2>
+     <div class="location-info">
+      <h3>Meeting Location</h3>
+      <p><strong>Address:</strong> <span id="location-address">Kirkwood Presbyterian Church, 8701 Argyle Forest Blvd, Jacksonville, FL 32244</span></p>
+      <p><strong>Meeting Room:</strong> Main room</p>
+      <p><strong>Parking:</strong> Free parking available in the church parking lot</p>
+      <p><strong>Accessibility:</strong> Wheelchair accessible entrance and facilities</p>
+     </div>
+     <div class="landmarks">
+      <h4>🏢 Nearby Landmarks</h4>
+      <ul>
+       <li>Argyle Forest Elementary School (0.3 mi)</li>
+       <li>Winn Dixie Shopping Center (0.1 mi)</li>
+       <li>Orange Park Mall (2.1 mi)</li>
+      </ul>
+     </div>
+     <h3>What to Expect</h3>
+     <p>Kirkwood Presbyterian Church is a welcoming facility with ample meeting space, restrooms, and kitchen facilities. We meet in the Main room, which is equipped with tables, chairs, and storage for our troop equipment. Parents are welcome to stay during meetings or use the lobby area.</p>
+     <h3>Contact for Directions</h3>
+     <p>If you need help finding us, please contact our Scoutmaster at <span id="location-contact">troop128@example.com</span> or call the church office at (904) 771-4345.</p>
+    </div>
+
+    <!-- Links Page -->
+    <div id="links" class="page">
+     <h2>Important Links</h2>
+     <p>Here are essential resources for scouts and parents:</p>
+     <div class="links-grid">
+      <div class="link-card scoutbook">
+       <div class="link-logo" style="background: #28a745; color: white;">SCOUT<br>BOOK</div>
+       <h3>Scoutbook</h3>
+       <p>Track your advancement, view upcoming events, and communicate with troop leaders. All scouts and parents should have Scoutbook accounts.</p>
+       <a href="https://scoutbook.scouting.org" target="_blank" rel="noopener noreferrer" class="link-btn scoutbook">Visit Scoutbook</a>
+      </div>
+      <div class="link-card bsa">
+       <div class="link-logo" style="background: #0066cc; color: white;">BSA<br>MAIN</div>
+       <h3>BSA Official Website</h3>
+       <p>The official Boy Scouts of America website with resources, news, and information about scouting programs nationwide.</p>
+       <a href="https://www.scouting.org" target="_blank" rel="noopener noreferrer" class="link-btn">Visit BSA.org</a>
+      </div>
+      <div class="link-card">
+       <div class="link-logo" style="background: #dc3545; color: white;">MERIT<br>BADGE</div>
+       <h3>Merit Badge Resources</h3>
+       <p>Find merit badge requirements, worksheets, and counselor information to help you advance through the ranks.</p>
+       <a href="https://www.scouting.org/programs/scouts-bsa/advancement-and-awards/merit-badges/" target="_blank" rel="noopener noreferrer" class="link-btn">Merit Badges</a>
+      </div>
+      <div class="link-card">
+       <div class="link-logo" style="background: #6f42c1; color: white;">COUNCIL<br>SITE</div>
+       <h3>Local Council</h3>
+       <p>Visit our local council website for area events, camps, training opportunities, and council-specific information.</p>
+       <a href="https:/https:/www.nfcscouting.org/" target="_blank" rel="noopener noreferrer" class="link-btn">Find Council</a>
+      </div>
+      <div class="link-card">
+       <div class="link-logo" style="background: #fd7e14; color: white;">TRAINING<br>CENTER</div>
+       <h3>Training Resources</h3>
+       <p>Access online training modules for youth and adult leaders. Complete required training and earn certifications.</p>
+       <a href="https://www.scouting.org/training/" target="_blank" rel="noopener noreferrer" class="link-btn">Training</a>
+      </div>
+      <div class="link-card">
+       <div class="link-logo" style="background: #20c997; color: white;">SCOUT<br>SHOP</div>
+       <h3>Scout Shop</h3>
+       <p>Purchase uniforms, handbooks, merit badge materials, and other official scouting supplies and equipment.</p>
+       <a href="https://www.scoutshop.org" target="_blank" rel="noopener noreferrer" class="link-btn">Scout Shop</a>
+      </div>
+     </div>
+     <h3>Mobile Apps</h3>
+     <p>Download these helpful apps:</p>
+     <ul>
+      <li><strong>Scoutbook Mobile:</strong> Available for iOS and Android</li>
+      <li><strong>Merit Badge Tracker:</strong> Track your progress on the go</li>
+      <li><strong>Scout Handbook:</strong> Digital version of the official handbook</li>
+     </ul>
+     <h3>Emergency Contacts</h3>
+     <p>For urgent troop matters or emergencies during events:</p>
+     <p><strong>Scoutmaster:</strong> <span id="emergency-contact">Chris McKeown - (904) 345-0034</span></p>
+     <p><strong>Committee Chair:</strong> Ms. Andrea - (123) 123-4567</p>
+    </div>
+   </main>
+   <!-- Footer -->
+   <footer class="footer">
+    <p>© 2024 Troop 128. All rights reserved.</p>
+    <p>Website by Troop 128 Web Team.</p>
+   </footer>
+
+   <!-- JavaScript -->
+   <script>
+    // Navigation
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => {
+        page.classList.remove('active');
+      });
+      document.getElementById(pageId).classList.add('active');
+    }
+
+    // Collapsible camping cards
+    document.querySelectorAll('.camping-card').forEach(card => {
+      const header = card.querySelector('.camping-header');
+      header.addEventListener('click', () => {
+        card.classList.toggle('active');
+      });
+    });
+
+    // Calendar
+    const calendarGrid = document.getElementById('calendar-grid');
+    const calendarMonthYear = document.getElementById('calendar-month-year');
+    let currentDate = new Date();
+
+    function renderCalendar(date) {
+      calendarGrid.innerHTML = '';
+      const month = date.getMonth();
+      const year = date.getFullYear();
+      calendarMonthYear.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Fill empty cells before first day
+      for (let i = 0; i < firstDay; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.classList.add('calendar-day', 'empty');
+        calendarGrid.appendChild(emptyCell);
+      }
+
+      // Fill days
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayCell = document.createElement('div');
+        dayCell.classList.add('calendar-day');
+        dayCell.textContent = day;
+        calendarGrid.appendChild(dayCell);
+      }
+    }
+
+    function changeMonth(offset) {
+      currentDate.setMonth(currentDate.getMonth() + offset);
+      renderCalendar(currentDate);
+    }
+
+    renderCalendar(currentDate);
+   </script>
+  </body>
+</html>
